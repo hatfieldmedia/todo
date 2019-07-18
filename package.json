@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^16.16.0",
+    "@probot/serverless-lambda": "^0.3.0",
     "hbs": "^4.0.2",
     "joi": "^14.3.0",
     "parse-diff": "^0.5.1",
