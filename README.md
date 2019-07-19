@@ -31,7 +31,7 @@ function ruleOverPunyHumans () {
 
 ## Behaviour in pull requests
 
-To reduce noise and keep your **todo** notes in the right context, **todo** comments made in commits that are part of a pull request will be converted into comments on that pull request. When the PR is merged, **todo** will determine which of those **todo**s have yet to be resolved and open an appropriate issue. 
+To reduce noise and keep your **todo** notes in the right context, **todo** comments made in commits that are part of a pull request will be converted into comments on that pull request. When the PR is merged, **todo** will determine which of those **todo**s have yet to be resolved and open an appropriate issue.
 
 ## Configuring for your project
 
@@ -93,3 +93,10 @@ npm start
 ```
 
 See [docs/deploy.md](docs/deploy.md) if you would like to run your own instance of this app.
+
+## Deploying to fargate
+```
+docker build -t github-todo .
+docker tag github-todo:latest 838945975189.dkr.ecr.us-east-1.amazonaws.com/github-todo:latest
+docker push 838945975189.dkr.ecr.us-east-1.amazonaws.com/github-todo:latest
+```
