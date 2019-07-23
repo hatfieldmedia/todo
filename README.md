@@ -98,5 +98,6 @@ See [docs/deploy.md](docs/deploy.md) if you would like to run your own instance 
 ```
 docker build -t github-todo .
 docker tag github-todo:latest 838945975189.dkr.ecr.us-east-1.amazonaws.com/github-todo:latest
+aws ecr get-login --no-include-email
 docker push 838945975189.dkr.ecr.us-east-1.amazonaws.com/github-todo:latest
 ```
