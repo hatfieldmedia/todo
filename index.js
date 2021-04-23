@@ -2,6 +2,7 @@ const pullRequestHandler = require('./lib/pull-request-handler')
 const pullRequestMergedHandler = require('./lib/pull-request-merged-handler')
 const pushHandler = require('./lib/push-handler')
 const issueRenameHandler = require('./lib/issue-rename-handler')
+const issueAssignmentHandler = require('./lib/issue-assignment-handler')
 const ignoreRepos = require('./lib/ignore-repos')
 
 /**
@@ -19,4 +20,7 @@ module.exports = app => {
 
   // Prevent tampering with the issue title
   app.on('issues.edited', ignoreRepos(issueRenameHandler))
+
+  // Synchronize assignments and unassignments with Mavenlink
+  app.on('issues.assigned', 'issues.unassigned', ignoreRepos(issueAssignmentHandler))
 }
