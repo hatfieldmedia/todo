@@ -22,5 +22,5 @@ module.exports = app => {
   app.on('issues.edited', ignoreRepos(issueRenameHandler))
 
   // Synchronize assignments and unassignments with Mavenlink
-  app.on('issues.assigned', 'issues.unassigned', ignoreRepos(issueAssignmentHandler))
+  app.on(['issues.assigned', 'issues.unassigned'], ignoreRepos(issueAssignmentHandler))
 }
